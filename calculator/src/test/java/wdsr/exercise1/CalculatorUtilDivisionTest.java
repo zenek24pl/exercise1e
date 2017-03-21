@@ -27,9 +27,18 @@ public class CalculatorUtilDivisionTest {
 		calcUtil = new CalculatorUtil(calculator);
 	}
 	
-	@Test
+
+	@Test(expected=IllegalArgumentException.class)
 	public void test16dividedBy4() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		// given
+		doThrow(new IllegalArgumentException()).when(calculator).divide(anyInt(),eq(4));
+
+		// when
+		calcUtil.getDivisionText(16, 4);
+		
+		// then
+		// empty - exception expected
 	}		
 
 	@Test(expected=IllegalArgumentException.class)
